@@ -43,26 +43,38 @@
 #         return 'Niceeee' + value
 # checker(100)
 
-class BuildingError(Exception):
-    def __init__(self, amount, limit):
-        self.amount = amount
-        self.limit = limit
-
-    def __str__(self):
-        return (f'Not enough materials to build!',
-                f'we need at least {self.limit}, but got {self.amount}')
-
-
-def check_materials(amount, limit):
-    if amount >= limit:
-        print('yes we can build the house!')
-    else:
-        raise BuildingError(amount, limit)
-
-
-check_materials(100, 250)
+# class BuildingError(Exception):
+#     def __init__(self, amount, limit):
+#         self.amount = amount
+#         self.limit = limit
+#
+#     def __str__(self):
+#         return (f'Not enough materials to build!',
+#                 f'we need at least {self.limit}, but got {self.amount}')
+#
+#
+# def check_materials(amount, limit):
+#     if amount >= limit:
+#         print('yes we can build the house!')
+#     else:
+#         raise BuildingError(amount, limit)
+#
+#
+# check_materials(100, 250)
 
 
 import warnings
 
-warnings.warn('warning, no code here', SyntaxWarning)
+# warnings.simplefilter('always', ImportWarning)
+# # warnings.simplefilter('always', SyntaxWarning)
+# warnings.simplefilter('ignore', SyntaxWarning)
+#
+# warnings.warn('warning, no code here', SyntaxWarning)
+# warnings.warn('warning, wrong import', ImportWarning)
+# print("Hello World")
+
+warnings.simplefilter('error', ImportWarning)
+try:
+    warnings.warn('warning, wrong import', ImportWarning)
+except:
+    print('Warning processed')
