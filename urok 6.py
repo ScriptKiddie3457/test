@@ -25,12 +25,19 @@ try:
     print('start code')
     print(10 / 0)
     print('no errors')
-except (NameError, ZeroDivisionError) as ex
+except (NameError, ZeroDivisionError) as ex:
     # працює коли є помилка
     print(f'we have an error: {ex}')
 else:
     # працює коли нема помилки
-    print("i am else")
+    print("no errors")
 finally:
     # працює незалежно від помилки
     print('finally code')
+
+def checker(value):
+    if not isinstance(value, str):
+        raise TypeError(f'sorry we cant work with {type(value)}. We need only str')
+    else:
+        return 'Niceeee' + value
+checker(100)
